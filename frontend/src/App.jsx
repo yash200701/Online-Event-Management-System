@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
 
-const EVENT_API = "http://localhost:8080/api/events";
-const REGISTRATION_API = "http://localhost:8080/api/registrations";
+const EVENT_API = (import.meta.env.VITE_API_URL || "http://localhost:8080") + "/api/events";
+const REGISTRATION_API = (import.meta.env.VITE_API_URL || "http://localhost:8080") + "/api/registrations";
 
 function App() {
   const [events, setEvents] = useState([]);
@@ -249,7 +249,7 @@ function App() {
                 ?.scrollIntoView({ behavior: "smooth" })
             }
           >
-            Explore Events →
+            Explore Events â†’
           </button>
 
         </div>
@@ -324,7 +324,7 @@ function App() {
             className="refresh-button"
             onClick={loadEvents}
           >
-            ↻ Refresh
+            â†» Refresh
           </button>
 
         </div>
@@ -488,7 +488,7 @@ function App() {
               className="close-button"
               onClick={() => setShowCreateForm(false)}
             >
-              ×
+              Ã—
             </button>
 
             <h2>Create New Event</h2>
@@ -593,7 +593,7 @@ function App() {
               className="close-button"
               onClick={() => setSelectedEvent(null)}
             >
-              ×
+              Ã—
             </button>
 
             <p className="section-tag">
@@ -608,9 +608,9 @@ function App() {
 
             <div className="registration-info">
               <strong>{selectedEvent.date}</strong>
-              <span>•</span>
+              <span>â€¢</span>
               <strong>{selectedEvent.time}</strong>
-              <span>•</span>
+              <span>â€¢</span>
               <strong>{selectedEvent.location}</strong>
             </div>
 
